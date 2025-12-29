@@ -11,15 +11,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # گیت ریپو را دانلود کن
+      # دانلود ریپو
       - uses: actions/checkout@v4
 
-      # Node.js را نصب کن
+      # نصب Node.js
       - uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # کش npm برای سریع‌تر شدن build
+      # کش npm بعد از setup-node
       - name: Cache node modules
         uses: actions/cache@v3
         with:
@@ -31,7 +31,7 @@ jobs:
       # نصب پکیج‌ها
       - run: npm install
 
-      # ساخت پروژه
+      # ساخت پروژه (build)
       - run: npm run build
 
       # انتشار روی GitHub Pages
