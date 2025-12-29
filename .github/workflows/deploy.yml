@@ -11,30 +11,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # دانلود ریپو
       - uses: actions/checkout@v4
 
-      # نصب Node.js
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 16
 
-      # کش npm بعد از setup-node
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-v2
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # نصب پکیج‌ها
       - run: npm install
 
-      # ساخت پروژه (build)
       - run: npm run build
 
-      # انتشار روی GitHub Pages
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
