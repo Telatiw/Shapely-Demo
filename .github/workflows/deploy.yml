@@ -11,12 +11,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # گیت ریپو را دانلود کن
       - uses: actions/checkout@v4
 
+      # Node.js را نصب کن
       - uses: actions/setup-node@v4
         with:
           node-version: 18
 
+      # کش npm برای سریع‌تر شدن build
       - name: Cache node modules
         uses: actions/cache@v3
         with:
@@ -25,9 +28,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      # نصب پکیج‌ها
       - run: npm install
+
+      # ساخت پروژه
       - run: npm run build
 
+      # انتشار روی GitHub Pages
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
