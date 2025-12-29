@@ -3,7 +3,7 @@ export default function SeoSection() {
   return (
     <div className="px-5 py-10 w-screen flex flex-col bg-white md:flex-row">
         <div className="w-full flex ">
-            <img className=" " src="/public/macbook-preview-flexible.png" alt="" />
+            <img className=" " src="./macbook-preview-flexible.png" alt="" />
         </div>
         <div className="w-full flex flex-col justify-evenly gap-5 ">
             <h5 className='text-2xl'>SEO Friendly</h5>

@@ -8,7 +8,7 @@ export default function PortfolioSection() {
                 <PrimeBtn text='SEE IT IN ACTION' />
             </div>
             <div className=" w-full ">
-                <img src="/flexible-portfolio.png" alt="" />
+                <img src="./flexible-portfolio.png" alt="" />
             </div>
         </div>
     )
